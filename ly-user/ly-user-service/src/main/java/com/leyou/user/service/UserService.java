@@ -3,6 +3,7 @@ package com.leyou.user.service;
 import com.leyou.common.utils.NumberUtils;
 import com.leyou.user.mapper.UserMapper;
 import com.leyou.user.pojo.User;
+import com.leyou.user.utils.CodecUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -46,7 +47,12 @@ public class UserService {
         if(StringUtils.isNotBlank(storeCode)){
             if(storeCode.equals(code)){
                 user.setCreated(new Date());
-
+                String salt = CodecUtils.generateSalt();
+                user.setSalt(salt);
+                user.setPassword(CodecUtils.md5Hex(user.getPassword(),salt));
+                userMapper.insertSelective(user);
+                stringRedisTemplate.delete(KEY_PREFIX+user.getPhone());
+                return true;
             }
             return null;
         }

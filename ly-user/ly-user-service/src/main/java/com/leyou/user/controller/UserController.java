@@ -36,5 +36,9 @@ public class UserController {
     @PostMapping("register")
     public ResponseEntity<Void> createUser(User user,@RequestParam("code") String code){
         Boolean b=userService.register(user,code);
+        if(b==null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
