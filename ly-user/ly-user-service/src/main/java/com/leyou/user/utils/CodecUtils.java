@@ -8,7 +8,6 @@ import java.util.UUID;
 public class CodecUtils {
 
 
-
     public static String md5Hex(String data,String salt) {
         if (StringUtils.isBlank(salt)) {
             salt = data.hashCode() + "";
