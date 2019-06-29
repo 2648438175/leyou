@@ -35,6 +35,6 @@ public class UserController {
 
     @PostMapping("register")
     public ResponseEntity<Void> createUser(User user,@RequestParam("code") String code){
-
+        Boolean b=userService.register(user,code);
     }
 }
