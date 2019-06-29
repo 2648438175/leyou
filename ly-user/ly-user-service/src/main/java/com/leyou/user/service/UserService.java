@@ -3,11 +3,13 @@ package com.leyou.user.service;
 import com.leyou.common.utils.NumberUtils;
 import com.leyou.user.mapper.UserMapper;
 import com.leyou.user.pojo.User;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -37,5 +39,17 @@ public class UserService {
         String code = NumberUtils.generateCode(4);
         stringRedisTemplate.opsForValue().set(KEY_PREFIX+phone,code,5, TimeUnit.MINUTES);
         return true;
+    }
+
+    public Boolean register(User user, String code) {
+        String storeCode=stringRedisTemplate.opsForValue().get(KEY_PREFIX+user.getPhone());
+        if(StringUtils.isNotBlank(storeCode)){
+            if(storeCode.equals(code)){
+                user.setCreated(new Date());
+
+            }
+            return null;
+        }
+        return null;
     }
 }
