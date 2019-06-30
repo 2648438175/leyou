@@ -22,7 +22,7 @@ public class UserService {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    static final String KEY_PREFIX="user:code:phone";
+    static final String KEY_PREFIX="user:code:phone:";
 
     public Boolean checkData(String data, Integer type) {
         User user = new User();
@@ -55,6 +55,20 @@ public class UserService {
                 return true;
             }
             return null;
+        }
+        return null;
+    }
+
+    public User queryUser(String username, String password) {
+        User user=new User();
+        user.setUsername(username);
+        User user1 = userMapper.selectOne(user);
+        if(user1==null){
+            return null;
+        }
+        String newpass=CodecUtils.md5Hex(password,user1.getSalt());
+        if(newpass.equals(user1.getPassword())){
+        return user1;
         }
         return null;
     }

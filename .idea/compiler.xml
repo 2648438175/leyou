@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ly-api-gateway" />
+        <module name="ly-auth-common" />
+        <module name="ly-auth-service" />
         <module name="ly-common" />
         <module name="ly-goods-page" />
         <module name="ly-item-interface" />
@@ -21,6 +23,9 @@
     <bytecodeTargetLevel>
       <module name="leyou" target="1.8" />
       <module name="ly-api-gateway" target="1.8" />
+      <module name="ly-auth-center" target="1.8" />
+      <module name="ly-auth-common" target="1.8" />
+      <module name="ly-auth-service" target="1.8" />
       <module name="ly-common" target="1.8" />
       <module name="ly-goods-page" target="1.8" />
       <module name="ly-item" target="1.8" />
@@ -37,6 +42,9 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ly-api-gateway" options="-parameters" />
+      <module name="ly-auth-center" options="-parameters" />
+      <module name="ly-auth-common" options="-parameters" />
+      <module name="ly-auth-service" options="-parameters" />
       <module name="ly-common" options="-parameters" />
       <module name="ly-goods-page" options="-parameters" />
       <module name="ly-item-interface" options="-parameters" />

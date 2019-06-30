@@ -17,6 +17,7 @@
         <module>ly-search</module>
         <module>ly-goods-page</module>
         <module>ly-user</module>
+        <module>ly-auth-center</module>
     </modules>
 
     <parent>

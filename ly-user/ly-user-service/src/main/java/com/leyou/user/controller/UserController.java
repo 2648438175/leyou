@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 public class UserController {
 
@@ -34,11 +36,22 @@ public class UserController {
 
 
     @PostMapping("register")
-    public ResponseEntity<Void> createUser(User user,@RequestParam("code") String code){
+    public ResponseEntity<Void> createUser(@Valid User user, @RequestParam("code") String code){
         Boolean b=userService.register(user,code);
         if(b==null){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+
+
+    @PostMapping("login")
+    public ResponseEntity<User> queryUser(@RequestParam("username") String username,@RequestParam("password") String password){
+        User user=userService.queryUser(username,password);
+        if(user!=null){
+            return  ResponseEntity.ok(user);
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 }

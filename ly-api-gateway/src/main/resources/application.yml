@@ -19,6 +19,7 @@ zuul:
     item-service: /item/**
     search-service: /search/**
     user-service: /user/**
+    auth-service: /auth/**
   ignored-services: upload-server
 ribbon:
   ConnectTimeout: 250

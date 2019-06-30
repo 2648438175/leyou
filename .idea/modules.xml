@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/leyou.iml" filepath="$PROJECT_DIR$/leyou.iml" />
       <module fileurl="file://$PROJECT_DIR$/ly-api-gateway/ly-api-gateway.iml" filepath="$PROJECT_DIR$/ly-api-gateway/ly-api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ly-auth-center/ly-auth-center.iml" filepath="$PROJECT_DIR$/ly-auth-center/ly-auth-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ly-auth-center/ly-auth-common/ly-auth-common.iml" filepath="$PROJECT_DIR$/ly-auth-center/ly-auth-common/ly-auth-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ly-auth-center/ly-auth-service/ly-auth-service.iml" filepath="$PROJECT_DIR$/ly-auth-center/ly-auth-service/ly-auth-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/ly-common/ly-common.iml" filepath="$PROJECT_DIR$/ly-common/ly-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/ly-goods-page/ly-goods-page.iml" filepath="$PROJECT_DIR$/ly-goods-page/ly-goods-page.iml" />
       <module fileurl="file://$PROJECT_DIR$/ly-item/ly-item.iml" filepath="$PROJECT_DIR$/ly-item/ly-item.iml" />
